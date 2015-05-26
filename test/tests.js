@@ -27,4 +27,22 @@ describe('GColor', function () {
       done();
     });
   });  
+  
+  describe('#expandHex', function () {
+    it('should convert a GColor hex value into a 6 character hex string', function (done) {
+      expect(GColor.expandHex('C0')).to.equal('000000');
+      expect(GColor.expandHex('FF')).to.equal('FFFFFF');
+      expect(GColor.expandHex('DB')).to.equal('55AAFF');
+      done();
+    });
+  });  
+  
+  describe('#shortHex', function () {
+    it('should convert a 6 character hex into a GColor 2 character hex string', function (done) {
+      expect(GColor.shortHex('000000')).to.equal('C0');
+      expect(GColor.shortHex('FFFFFF')).to.equal('FF');
+      expect(GColor.shortHex('55AA55')).to.equal('D9');
+      done();
+    });
+  });  
 });
